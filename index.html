@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Kozhikode Local Guide</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #000000;
+      color: #111;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 640px;
+      padding: 32px;
+      background: #ffffff;
+      border-radius: 14px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    }
+
+    h1 {
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .subtitle {
+      color: #666;
+      font-size: 15px;
+      margin-bottom: 28px;
+    }
+
+    textarea {
+      width: 100%;
+      height: 90px;
+      padding: 14px;
+      font-size: 15px;
+      border-radius: 10px;
+      border: 1px solid #ddd;
+      resize: none;
+      outline: none;
+    }
+
+    textarea:focus {
+      border-color: #000;
+    }
+
+    button {
+      margin-top: 18px;
+      width: 100%;
+      padding: 14px;
+      font-size: 15px;
+      font-weight: 500;
+      border-radius: 10px;
+      border: none;
+      background: #000;
+      color: #fff;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    button:hover {
+      opacity: 0.85;
+    }
+
+    .response {
+      margin-top: 22px;
+      padding: 16px;
+      background: #f4f4f4;
+      border-radius: 10px;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .hint {
+      font-size: 13px;
+      color: #777;
+      margin-bottom: 14px;
+    }
+
+    footer {
+      margin-top: 26px;
+      text-align: center;
+      font-size: 13px;
+      color: #888;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Kozhikode Local Guide</h1>
+    <p class="subtitle">A city-aware AI powered by Kiro</p>
+
+    <p class="hint">
+      Try: “Best evening food near the beach”,  
+      “What does scene illa mean?”,  
+      “Traffic at 6 PM?”
+    </p>
+
+    <textarea id="question" placeholder="Ask something about Kozhikode…"></textarea>
+    <button onclick="showResponse()">Ask</button>
+
+    <div class="response" id="response">
+      Your local answer will appear here.
+    </div>
+
+    <footer>
+      Built for Kiro Heroes Challenge · Week 5
+    </footer>
+  </div>
+
+  <script>
+    function showResponse() {
+      const q = document.getElementById("question").value.toLowerCase();
+      let answer = "This response is generated using Kozhikode-specific local context.";
+
+      if (q.includes("food") || q.includes("eat")) {
+        answer = "Evening food near Kozhikode Beach usually includes kallummakkaya, pazham pori, and Malabar biriyani. The area becomes lively after 5:30 PM.";
+      }
+      else if (q.includes("scene illa")) {
+        answer = '"Scene illa" is a Malayalam slang meaning "no problem" or "it’s fine", commonly used in casual conversations.';
+      }
+      else if (q.includes("traffic")) {
+        answer = "Traffic is typically heavy between 5–7 PM due to office rush and beach visitors. Short distances may take longer during this time.";
+      }
+
+      document.getElementById("response").innerHTML = answer;
+    }
+  </script>
+
+</body>
+</html>
